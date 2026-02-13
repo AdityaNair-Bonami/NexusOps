@@ -1,1 +1,23 @@
 # project dependencies
+
+# Web Framework & Server
+fastapi[all]
+uvicorn[standard]
+
+# Security (JWT & Password Hashing)
+python-jose[cryptography]
+passlib[bcrypt]
+
+# AI & Agents
+google-genai          # Official Gemini SDK
+pydantic              # Data validation (standard in FastAPI/AI)
+python-dotenv         # Secret management (.env)
+
+# RAG (Vector DB & Processing)
+chromadb              # Your Vector Database
+pymupdf               # Essential for reading PDF runbooks
+#sentence-transformers # Optional: if you want to run local embeddings later
+
+# MCP (Model Context Protocol)
+mcp                   # Low-level SDK
+fastmcp               # High-level decorator-based SDK (highly recommended)
