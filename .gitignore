@@ -1,0 +1,5 @@
+# things that should be ignored by gitvenv/
+.env
+__pycache__
+.pytest_cache/
+data/vector_db
