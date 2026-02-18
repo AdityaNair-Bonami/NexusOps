@@ -2,6 +2,7 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from .auth.security import verify_password, create_access_token, get_password_hash
 from .auth.rbac import RoleChecker
+from .agents.code_agent import ask_nexus_ops
 
 app = FastAPI(title="NexusOps API")
 
@@ -38,3 +39,8 @@ async def read_tasks():
 @app.get("/senior/deploy", dependencies=[Depends(RoleChecker(["senior_dev"]))])
 async def deploy_code():
     return {"message": "DANGER: Only senior developers can see this."}
+
+@app.get("/ask", dependencies=[Depends(RoleChecker(["junior_dev", "senior_dev"]))])
+async def ask_agent(question: str):
+    answer = ask_nexus_ops(question)
+    return {"answer": answer}
