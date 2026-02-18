@@ -4,9 +4,11 @@
 fastapi[all]
 uvicorn[standard]
 
+
 # Security (JWT & Password Hashing)
 python-jose[cryptography]
-passlib[bcrypt]
+passlib
+bcrypt==4.0.1
 
 # AI & Agents
 google-genai          # Official Gemini SDK
@@ -21,3 +23,6 @@ pymupdf               # Essential for reading PDF runbooks
 # MCP (Model Context Protocol)
 mcp                   # Low-level SDK
 fastmcp               # High-level decorator-based SDK (highly recommended)
+
+# System & Git
+GitPython             # To check uncommitted local code logic
